@@ -17,11 +17,8 @@ def fetch(url):
 
 # Requisito 2
 def scrape_updates(html_content):
-    get_links = (
-        Selector(text=html_content)
-        .css("div.cs-overlay a::attr(href)")
-        .getall()
-    )
+    path = "div.cs-overlay a::attr(href)"
+    get_links = Selector(text=html_content).css(path).getall()
     return get_links
 
 
