@@ -5,14 +5,13 @@ from collections import Counter
 
 # Requisito 10
 def top_5_news():
-    # top_five_list = []
     news = find_news()
     news.sort(key=itemgetter("comments_count", "title"), reverse=True)
 
     if len(news) <= 5:
         return [(new["title"], new["url"]) for new in news]
 
-    top_five_list = [news[i] for i in range(5)]
+    top_five_list = news[:5]
 
     return [(new["title"], new["url"]) for new in top_five_list]
 
