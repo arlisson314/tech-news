@@ -38,8 +38,7 @@ def scrape_news(html_content):
         "title": selector.css("h1.entry-title::text").get().strip(),
         "timestamp": selector.css("li.meta-date::text").get(),
         "writer": selector.css("span.author a::text").get(),
-        "comments_count": len(selector.css("div.comment-content").getall())
-        or 0,
+        "comments_count": len(selector.css("div.comment-content").getall()),
         "summary": "".join(
             selector.css(".entry-content > p:first-of-type *::text").getall()
         ).strip(),
