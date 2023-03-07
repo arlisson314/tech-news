@@ -60,8 +60,8 @@ def get_tech_news(amount):
         BASE_URL = scrape_next_page_link(html)
 
     for url in URL_LIST[0:amount]:
-        page_url = fetch(url)
-        NEWS.append(scrape_news(page_url))
+        page_html = fetch(url)
+        NEWS.append(scrape_news(page_html))
 
     create_news(NEWS)
     return NEWS
